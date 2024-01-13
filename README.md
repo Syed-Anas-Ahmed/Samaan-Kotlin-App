@@ -21,18 +21,22 @@
 
 ## Onboarding
 <div align="center" style="display: flex; justify-content: space-between;">
-  <img src="https://github.com/Syed-Anas-Ahmed/dragonfly-banking-app/blob/master/assets/Onboarding%201.png" alt="Onboarding 1" width="33%" height="auto" />
+  <img src="https://github.com/Syed-Anas-Ahmed/Samaan-Kotlin-App/blob/master/screenshots/Onboarding%201.jpg" alt="Onboarding 1" width="33%" height="auto" />
+  <img src="https://github.com/Syed-Anas-Ahmed/Samaan-Kotlin-App/blob/master/screenshots/Onboarding%202.jpg" alt="Onboarding 2" width="33%" height="auto" />
 </div>
 
 
 ## Login/Register
 <div align="center" style="display: flex; justify-content: space-between;">
-<img src="https://github.com/Syed-Anas-Ahmed/dragonfly-banking-app/blob/master/assets/Login%2C%20Register.png" alt="LoginRegister" width="33%" height="auto" />
+<img src="https://github.com/Syed-Anas-Ahmed/Samaan-Kotlin-App/blob/master/screenshots/Login.jpg" alt="LoginRegister" width="33%" height="auto" />
+<img src="https://github.com/Syed-Anas-Ahmed/Samaan-Kotlin-App/blob/master/screenshots/Forgot%20Password.jpg" alt="LoginRegister" width="33%" height="auto" />
+<img src="https://github.com/Syed-Anas-Ahmed/Samaan-Kotlin-App/blob/master/screenshots/Registration.jpg" alt="LoginRegister" width="33%" height="auto" />
+
 </div>
 
 ## Home
 <div align="center" style="display: flex; justify-content: space-between;">
-<img src="https://github.com/Syed-Anas-Ahmed/dragonfly-banking-app/blob/master/assets/1694712774138.jpg" alt="LoginRegister" width="33%" height="auto" />
+<img src="" alt="LoginRegister" width="33%" height="auto" />
 </div>
 
 ## License
