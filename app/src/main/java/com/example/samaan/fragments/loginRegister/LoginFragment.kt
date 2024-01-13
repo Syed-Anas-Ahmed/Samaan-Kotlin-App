@@ -13,8 +13,10 @@ import androidx.navigation.fragment.findNavController
 import com.example.samaan.R
 import com.example.samaan.activities.ShoppingActivity
 import com.example.samaan.databinding.FragmentLoginBinding
+import com.example.samaan.dialog.setupBottomSheetDialog
 import com.example.samaan.util.Resource
 import com.example.samaan.viewmodel.LoginViewModel
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -27,7 +29,7 @@ class LoginFragment: Fragment(R.layout.fragment_login) {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding=FragmentLoginBinding.inflate(inflater)
+        binding = FragmentLoginBinding.inflate(inflater)
         return binding.root
     }
 
@@ -38,29 +40,31 @@ class LoginFragment: Fragment(R.layout.fragment_login) {
             findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
 
-        binding.apply{
-            LoginBtn.setOnClickListener{
+        binding.apply {
+            LoginBtn.setOnClickListener {
                 val email = LoginEmailInput.text.toString().trim()
                 val password = LoginPasswordInput.text.toString()
 
                 viewModel.login(email, password)
             }
         }
+        binding.ForgotPw.setOnClickListener {
+            setupBottomSheetDialog { email -> viewModel.resetPassword(email)
+            }
+        }
+
         lifecycleScope.launchWhenStarted {
-            viewModel.login.collect{
-                when(it){
+            viewModel.resetPassword.collect {
+                when (it) {
                     is Resource.Loading -> {
-                        binding.LoginBtn.startAnimation()
                     }
+
                     is Resource.Success -> {
-                        binding.LoginBtn.revertAnimation()
-                        Intent(requireActivity(),ShoppingActivity::class.java).also { intent ->
-                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
-                            startActivity(intent)
-                        }
+                        Snackbar.make(requireView(), "Reset link was sent to your email", Snackbar.LENGTH_LONG).show()
                     }
+
                     is Resource.Error -> {
-                        Toast.makeText(requireContext(), it.message, Toast.LENGTH_LONG).show()
+                        Toast.makeText(requireContext(), "Error: ${it.message}", Toast.LENGTH_LONG).show()
                         binding.LoginBtn.revertAnimation()
                     }
 
@@ -68,5 +72,31 @@ class LoginFragment: Fragment(R.layout.fragment_login) {
                 }
             }
         }
+
+
+            lifecycleScope.launchWhenStarted {
+                viewModel.login.collect {
+                    when (it) {
+                        is Resource.Loading -> {
+                            binding.LoginBtn.startAnimation()
+                        }
+
+                        is Resource.Success -> {
+                            binding.LoginBtn.revertAnimation()
+                            Intent(requireActivity(), ShoppingActivity::class.java).also { intent ->
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+                                startActivity(intent)
+                            }
+                        }
+
+                        is Resource.Error -> {
+                            Toast.makeText(requireContext(), it.message, Toast.LENGTH_LONG).show()
+                            binding.LoginBtn.revertAnimation()
+                        }
+
+                        else -> Unit
+                    }
+                }
+            }
+        }
     }
-}

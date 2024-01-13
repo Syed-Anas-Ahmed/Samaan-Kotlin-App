@@ -3,5 +3,17 @@
     <style name="Base.Theme.Samaan" parent="Theme.Material3.Light.NoActionBar">
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+
+        <item name="colorPrimary">@color/g_gray500</item>
+        <item name="colorPrimaryVariant">@color/g_white</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <!-- Status bar = responsible for the background color. -->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <!-- Status bar text colors handle from here -->
+        <item name="android:windowLightStatusBar" tools:ignore="NewApi">true</item>
+
+
+
     </style>
 </resources>
