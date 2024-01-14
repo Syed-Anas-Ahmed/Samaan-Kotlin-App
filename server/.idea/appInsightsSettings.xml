@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.example.productsadder" />
+                  <option name="mobileSdkAppId" value="1:387335790293:android:5909fb8b197f0363a08c5c" />
+                  <option name="projectId" value="samaan-faf13" />
+                  <option name="projectNumber" value="387335790293" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
