@@ -17,8 +17,6 @@
 
 # Screenshots
 
-![Overview](https://github.com/Syed-Anas-Ahmed/devfolio/blob/main/src/assets/dragonfly.png)
-
 ## Onboarding
 <div align="center" style="display: flex; justify-content: space-between;">
   <img src="https://github.com/Syed-Anas-Ahmed/Samaan-Kotlin-App/blob/master/screenshots/Onboarding%201.jpg" alt="Onboarding 1" width="33%" height="auto" />
